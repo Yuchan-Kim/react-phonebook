@@ -56,11 +56,23 @@ const List = () => {
             console.log(response.data);
             console.log("==================================");
 
-            
+            if( response.data.result ==='success'){
+                /*
+                //리다이렉트안됨 (같은페이지의 리다이렉트는 안된다)
+                navigate("/list");
+                */
+                //getPersonList();
 
-            getPersonList();
+                //우리 리스트(배열) personList 에서 방금삭제한 값만 제거된 새로운 배열
+                let newArray =personList.filter((person)=>{
+                    return person.personId !== no;
+                });
 
-            
+                setPersonList(newArray);
+
+            }else {
+                alert(response.data.message);
+            }
 
         }).catch(error => {
             console.log(error);
