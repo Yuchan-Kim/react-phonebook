@@ -3,7 +3,10 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
-const List2 = () => {
+//Compoments
+import ItemPerson from './ItemPerson';
+
+const List3 = () => {
 
     /*---상태관리 변수들(값이 변화면 화면 랜더링 )-----*/
     const [personList, setPersonList] = useState([]);
@@ -35,7 +38,7 @@ const List2 = () => {
     useEffect(() => {
         console.log("마운트 됐어요");
 
-        //서버에서데이터 가져오기 그리기
+        //서버에서 데이터 그리기
         getPersonList();
 
     }, []);
@@ -82,30 +85,12 @@ const List2 = () => {
 
             {personList.map((personVo)=>{
                 return (
-                    <div key={personVo.personId}>
-                        <table border="1">
-                        <tbody>
-                            <tr>
-                                <th>이름(name)</th>
-                                <td>{personVo.name}</td>
-                            </tr>
-                            <tr>
-                                <th>핸드폰(hp)</th>
-                                <td>{personVo.hp}</td>
-                            </tr>
-                            <tr>
-                                <th>회사(company)</th>
-                                <td>{personVo.company}</td>
-                            </tr>
-                            <tr>
-                                <td><Link to={`/editform/${personVo.personId}`} rel="noreferrer noopener">[수정폼으로 이동]</Link></td>
-                                <td><button type="button" onClick={()=>{ handleDel(personVo.personId) }}>삭제</button></td>
-                            </tr>
-
-                        </tbody>
-                    </table>
-                    <br/>
-
+                    <div>
+                        <ItemPerson key ={personVo.personId}
+                                    person = {personVo}
+                                    handleDel = {handleDel}
+                                    
+                        />
                     </div>
                 )
 
@@ -119,4 +104,4 @@ const List2 = () => {
     );
 }
 
-export default List2;
+export default List3;
