@@ -11,7 +11,7 @@ function App() {
     <div>
       <BrowserRouter>
         <Routes>
-          <Route path='/list' element={<List />} />
+          <Route path='' element={<List />} />
           <Route path='/writeform' element={<WriteForm />} />
           <Route path='/editform/:no' element={<EditForm />} />
           <Route path='/list2' element={<List2 />} />

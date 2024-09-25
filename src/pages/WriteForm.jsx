@@ -57,7 +57,7 @@ const WriteForm = () => {
 
             if(response.data === 1){
                 //리다이렉트
-                navigate("/list");
+                navigate("/");
 
             }else {
                 alert("등록실패");

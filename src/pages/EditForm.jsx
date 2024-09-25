@@ -42,7 +42,7 @@ const EditForm = () => {
         }).then(response => {
             console.log(response.data.result); //수신데이타
             if (response.data.result === 'success') {
-                navigate("/list");
+                navigate("/");
             } else {
                 alert(response.data.message);
             }
